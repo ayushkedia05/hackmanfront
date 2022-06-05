@@ -75,6 +75,9 @@ this.setState({
   return (
     <Box sx={{ maxWidth: 840 }} mx="auto">
       <form onSubmit={form.onSubmit((values) => {
+
+
+
         let sellerdata={
           name:values.name,
           address:values.address,
@@ -99,11 +102,10 @@ this.setState({
         })
   console.log("sfjbs");
         emailjs
-        .sendForm(
+        .send(
           "service_g3786ir",
           "template_u1rfdve",
-          form.current,
-          "2QMm44-e4ryaA1IZC"
+          sellerdata,"2QMm44-e4ryaA1IZC"
         )
         .then(
           (result) => {
@@ -113,7 +115,7 @@ this.setState({
             console.log(error.text);
           }
         );
-      values.target.reset(); 
+      // values.target.reset(); 
       alert("message sent successful");
         
         
